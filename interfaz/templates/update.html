@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="jumbotron">
+  <h2 class="display-5">Hola, Mundo!</h2>
+  <p class="lead">Esta es la temperatura actual: 
+     {% if temper < 20 %}
+     <span class="text-primary">{{ temper}}</span>
+     
+     {% elif temper >= 20 and temper < 37 %}
+     <span class="text-success">{{ temper}}</span>
+
+     {% elif temper >= 37 and temper <= 40 %}
+        <span class="text-warning">{{ temper}}</span>
+    {% else %}
+        <span class="text-danger">{{ temper}}</span>
+        
+    {% endif %}
+      
+  </p>
+  <hr class="my-4">
+  <a class="btn btn-primary btn-lg" href="{{url_for('update')}}" role="button">Actualizar</a>
+</div>
+
+{% endblock%}
